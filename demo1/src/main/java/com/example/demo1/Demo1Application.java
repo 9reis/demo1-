@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class Demo1Application {
+	
+	private AppConfiguration appConfiguration;
+	
+	public Demo1Application( AppConfiguration appConfiguration) {
+		this.appConfiguration = appConfiguration; 
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(Demo1Application.class, args);
@@ -17,5 +23,11 @@ public class Demo1Application {
 	public String inicio( ) {
 		return "<h1> Projeto Spring iniciado </h1>";
 	}
+	
+	@GetMapping("/config")
+	public String config() {
+		return appConfiguration.getMessage();
+	}
+	
 
 }
