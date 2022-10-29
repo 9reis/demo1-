@@ -16,7 +16,7 @@ public class Demo1Application {
 		this.appConfiguration = appConfiguration; 
 	} 
 	
-	//@Value("${app.message}")
+	@Value("${app.message}")
 	private String message;
 
 	public static void main(String[] args) {
@@ -25,7 +25,7 @@ public class Demo1Application {
 	
 	@GetMapping("/inicio")
 	public String inicio( ) {
-		return "<h1> Projeto Spring iniciado </h1>";
+		return message;
 	}
 	
 	@GetMapping("/config")
